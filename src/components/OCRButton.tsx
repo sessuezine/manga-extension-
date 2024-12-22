@@ -52,6 +52,8 @@ const OCRButton = ({
                 const formData = new FormData();
                 formData.append("image", blob, "processed-region.png");
                 formData.append("orientation", rect.orientation); // Pass orientation to backend
+                console.log("Orientation sent to backend:", rect.orientation);
+
     
                 try {
                     setIsLoading(true);
