@@ -1,0 +1,22 @@
+/* Highlight overlay */
+.highlight {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* Popup styling */
+  body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 18px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
