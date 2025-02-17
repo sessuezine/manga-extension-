@@ -40,16 +40,6 @@ This extension enables users to select manga images on a webpage, send them to t
 - Check the browser console for any errors (`Ctrl + Shift + J` in Chrome, `Ctrl + Shift + K` in Firefox).
 - Reload the extension from your browser's extension settings if necessary.
 
-## 📂 File Structure
-
-manga-extension-/
-├─ background.js         (Handles communication with OCR server)
-├─ content.js            (Runs on web pages to detect images)
-├─ manifest.json         (Chrome/Firefox extension manifest)
-├─ popup.html            (UI for interacting with extracted text)
-├─ popup.js              (Logic for displaying OCR results)
-└─ README.md             (Documentation)
-
 ## 📦 Dependencies
 
 - **React** – UI framework for extension popups (optional, depending on your implementation).
