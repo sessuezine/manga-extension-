@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# Manga OCR Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A browser extension designed to extract and translate text from manga images, seamlessly integrating with the [OCR Server](https://github.com/sessuezine/ocr-server).**
 
-Currently, two official plugins are available:
+## 🚀 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This extension enables users to select manga images on a webpage, send them to the locally hosted OCR Server for text extraction, and display the recognized text for translation or further processing. It's an essential tool for manga enthusiasts and translators seeking to understand and interpret manga content.
 
-## Expanding the ESLint configuration
+## 🛠 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Image Selection** – Right-click on any manga image to send it to the OCR Server.
+- **Text Extraction** – Utilizes the OCR Server’s capabilities to extract text from selected images.
+- **Translation Support** – Easily copy the extracted text for translation purposes.
+- **Seamless Integration** – Designed to work in tandem with the [OCR Server](https://github.com/sessuezine/ocr-server) for efficient text recognition.
 
-- Configure the top-level `parserOptions` property like this:
+## ⚡ Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **OCR Server** – Ensure you have the [OCR Server](https://github.com/sessuezine/ocr-server) set up and running locally. Follow the installation instructions in its repository.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Steps
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the Repository**: Run `git clone https://github.com/sessuezine/manga-extension-.git` and then `cd manga-extension-`.
+
+2. **Load the Extension into Your Browser**:
+
+   - **Google Chrome**: Open `chrome://extensions/` in your browser, enable **Developer mode**, click **"Load unpacked"**, and select the cloned `manga-extension-` directory.
+   - **Mozilla Firefox**: Open `about:debugging#/runtime/this-firefox` in your browser, click **"Load Temporary Add-on..."**, and select the `manifest.json` file inside the `manga-extension-` directory.
+
+## 📡 Usage
+
+1. Right-click on any manga image and select **"Extract Text with Manga OCR"**.
+2. The extension sends the image to your locally running OCR Server (usually at `http://127.0.0.1:5000/`).
+3. The recognized text is displayed, ready to be copied and translated.
+
+## 🛠 Debugging
+
+- Ensure the **OCR Server** is running at `http://127.0.0.1:5000/`.
+- Check the browser console for any errors (`Ctrl + Shift + J` in Chrome, `Ctrl + Shift + K` in Firefox).
+- Reload the extension from your browser's extension settings if necessary.
+
+## 📂 File Structure
+
+manga-extension-/
+├─ background.js         (Handles communication with OCR server)
+├─ content.js            (Runs on web pages to detect images)
+├─ manifest.json         (Chrome/Firefox extension manifest)
+├─ popup.html            (UI for interacting with extracted text)
+├─ popup.js              (Logic for displaying OCR results)
+└─ README.md             (Documentation)
+
+## 📦 Dependencies
+
+- **React** – UI framework for extension popups (optional, depending on your implementation).
+- **Flask** – OCR Server backend for processing images.
+- **EasyOCR** – OCR engine used for text extraction.
+- **Tesseract (Future Integration)** – Optional alternative OCR engine.
+
+## 🔮 Future Enhancements
+
+- **Tesseract OCR Integration** – Provide an option to choose between EasyOCR and Tesseract for text extraction (Depending on use care).
+- **Auto-Translation** – Directly translate extracted text into English.
+- **User Preferences** – Allow users to select OCR settings.
+- **Clipboard Shortcut** – Automatically copy extracted text.
